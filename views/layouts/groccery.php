@@ -45,8 +45,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</form>
 		</div>
 		<div class="product_list_header">
-			<button type="button" class="button" data-toggle="modal" data-target="#modal-cart">
-				$0
+			<button type="button" class="button" data-toggle="modal" data-target="#modal-cart" onClick="getCart()">
+				<span class="cart-sum">$<?= $_SESSION['cart.sum'] ?? '0'?>$</span>
 			</button>
 
 			<!-- Modal -->

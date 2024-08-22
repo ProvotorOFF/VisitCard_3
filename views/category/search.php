@@ -100,7 +100,7 @@ use yii\widgets\LinkPager;
                                                 </h4>
                                             </div>
                                             <div class="snipcart-details">
-                                            <a href="<?= Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to Cart</a>
+                                            <a href="<?= Url::to(['/cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to Cart</a>
                                             </div>
                                         </div>
                                     </figure>

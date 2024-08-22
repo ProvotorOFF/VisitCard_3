@@ -55,7 +55,7 @@ use yii\helpers\Url;
                     </h4>
                 </div>
                 <div class="snipcart-details agileinfo_single_right_details">
-                <a href="<?= Url::to(['cart/add', 'id' => $product->id]) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to Cart</a>
+                <a href="<?= Url::to(['/cart/add', 'id' => $product->id], true) ?>" data-id="<?= $product->id ?>" class="button add-to-cart">Add to Cart</a>
                 </div>
             </div>
         </div>
