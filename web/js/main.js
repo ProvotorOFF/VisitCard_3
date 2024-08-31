@@ -92,6 +92,23 @@ $('.add-to-cart').on('click', function () {
     return false
 })
 
+$('#modal-cart .modal-body').on('click', '.del-item', function() {
+    const id = $(this).data('id')
+    $.ajax({
+        url: '/cart/del-item',
+        data: { id },
+        type: 'GET',
+        success: function (res) {
+            if (!res) alert('Ошибка')
+            showCart(res)
+        },
+        error: function () {
+            alert('Error')
+        }
+    })
+    return false
+})
+
 function getCart() {
     $.ajax({
         url: '/cart/show',
@@ -106,3 +123,28 @@ function getCart() {
     })
     return false
 }
+
+function clearCart() {
+    $.ajax({
+        url: '/cart/clear',
+        type: 'GET',
+        success: function (res) {
+            if (!res) alert('Ошибка')
+            showCart(res)
+        },
+        error: function () {
+            alert('Error')
+        }
+    })
+    return false
+}
+
+$('.value-plus').on('click', function(){
+    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+    divUpd.text(newVal);
+});
+
+$('.value-minus').on('click', function(){
+    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
+    if(newVal>=1) divUpd.text(newVal);
+});
