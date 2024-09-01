@@ -92,7 +92,7 @@ $('.add-to-cart').on('click', function () {
     return false
 })
 
-$('#modal-cart .modal-body').on('click', '.del-item', function() {
+$('#modal-cart .modal-body').on('click', '.del-item', function () {
     const id = $(this).data('id')
     $.ajax({
         url: '/cart/del-item',
@@ -139,12 +139,25 @@ function clearCart() {
     return false
 }
 
-$('.value-plus').on('click', function(){
-    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)+1;
+$('.value-plus, .value-minus').on('click', function () {
+    const id = $(this).data('id'),
+        qty = $(this).data('qty')
+    $('.cart-table .overlay').fadeIn()
+    $.ajax({
+        url: ('/cart/change-cart'),
+        data: { id: id, qty: qty },
+        type: 'GET',
+        success: function (res) {
+            if (!res) alert('Error product!')
+            window.location.reload()
+        }
+    })
+
+    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) + 1;
     divUpd.text(newVal);
 });
 
-$('.value-minus').on('click', function(){
-    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10)-1;
-    if(newVal>=1) divUpd.text(newVal);
+$('.value-minus').on('click', function () {
+    var divUpd = $(this).parent().find('.value'), newVal = parseInt(divUpd.text(), 10) - 1;
+    if (newVal >= 1) divUpd.text(newVal);
 });

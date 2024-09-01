@@ -56,4 +56,16 @@ class CartController extends AppController
         $session = Yii::$app->session;
         return $this->render('checkout', compact('session'));
     }
+
+    public function actionChangeCart() {
+        $id = Yii::$app->request->get('id');
+        $qty = Yii::$app->request->get('qty');
+        $product = Product::findOne($id);
+        if (!$product) return false;
+        $session = Yii::$app->session;
+        $session->open();
+        $cart = new Cart();
+        $cart->addToCart($product, $qty);
+        return $this->renderPartial('cart-modal', compact('session'));
+    }
 }

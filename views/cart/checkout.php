@@ -50,9 +50,9 @@ $row = 0;
 									<td class="invert">
 										<div class="quantity">
 											<div class="quantity-select">
-												<div class="entry value-minus">&nbsp;</div>
+												<div class="entry value-minus" data-qty="-1" data-id="<?= $id ?>">&nbsp;</div>
 												<div class="entry value"><span><?= $item['qty'] ?></span></div>
-												<div class="entry value-plus active">&nbsp;</div>
+												<div class="entry value-plus active" data-qty="1" data-id="<?= $id ?>">&nbsp;</div>
 											</div>
 										</div>
 									</td>
@@ -142,21 +142,3 @@ $row = 0;
 <div class="clearfix"></div>
 </div>
 <!-- //banner -->
-
-
-<!-- newsletter -->
-<div class="newsletter">
-	<div class="container">
-		<div class="w3agile_newsletter_left">
-			<h3>sign up for our newsletter</h3>
-		</div>
-		<div class="w3agile_newsletter_right">
-			<form action="#" method="post">
-				<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-				<input type="submit" value="subscribe now">
-			</form>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-</div>
-<!-- //newsletter -->
