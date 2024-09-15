@@ -15,7 +15,13 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
-    'modules' => ['admin' => ['class' => 'app\modules\admin\Module']],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+            'layout' => 'admin',
+            'defaultRoute' => 'main/index',
+        ]
+    ],
     'components' => [
         'assetManager' => [
             'bundles' => [
@@ -38,6 +44,7 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => '/admin/auth/login',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
