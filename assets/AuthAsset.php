@@ -28,7 +28,6 @@ class AuthAsset extends AssetBundle
         '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic'
     ];
     public $js = [
-        'adminlte/bower_components/jquery/dist/jquery.min.js',
         'adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js',
         'adminlte/plugins/iCheck/icheck.min.js',
         '/js/admin.js'
