@@ -23,6 +23,9 @@ $config = [
         ]
     ],
     'components' => [
+        'formatter' => [
+            'datetimeFormat' => 'dd.MM.Y HH:mm:s'
+        ],
         'assetManager' => [
             'bundles' => [
                 'yii\web\JqueryAsset' => [

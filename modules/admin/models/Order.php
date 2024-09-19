@@ -3,6 +3,9 @@
 namespace app\modules\admin\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "orders".
@@ -19,7 +22,7 @@ use Yii;
  * @property string $address
  * @property string|null $note
  */
-class Order extends \yii\db\ActiveRecord
+class Order extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -51,16 +54,30 @@ class Order extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-            'qty' => 'Qty',
-            'total' => 'Total',
-            'status' => 'Status',
-            'name' => 'Name',
+            'created_at' => 'Создан',
+            'updated_at' => 'Обновлен',
+            'qty' => 'Кол-во',
+            'total' => 'Всего',
+            'status' => 'Статус',
+            'name' => 'Название',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'address' => 'Address',
-            'note' => 'Note',
+            'phone' => 'Телефон',
+            'address' => 'Адрес',
+            'note' => 'Заметка',
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at']
+                ],
+                'value' => new Expression('NOW()'),
+            ]
         ];
     }
 }
