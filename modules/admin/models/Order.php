@@ -2,6 +2,7 @@
 
 namespace app\modules\admin\models;
 
+use app\modules\admin\models\OrderProduct;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
@@ -79,5 +80,9 @@ class Order extends ActiveRecord
                 'value' => new Expression('NOW()'),
             ]
         ];
+    }
+
+    public function getOrderProduct() {
+        return $this->hasMany(OrderProduct::class, ['order_id' => 'id']);
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
-namespace app\modules\admin\modles;
+namespace app\modules\admin\models;
 
+use app\modules\admin\models\Order;
 use Yii;
 
 /**
@@ -52,5 +53,9 @@ class OrderProduct extends \yii\db\ActiveRecord
             'qty' => 'Qty',
             'total' => 'Total',
         ];
+    }
+
+    public function getOrder() {
+        return $this->hasOne(Order::class, ['id' => 'order_id']);
     }
 }
