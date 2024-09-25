@@ -230,12 +230,12 @@ desired effect
                     'homeLink' => ['label' => 'Главная', 'url' => '/admin/'],
                     'links' => $this->params['breadcrumbs']
                 ]) ?>
-                <?= Alert::widget() ?>
+
             </section>
 
             <!-- Main content -->
             <section class="content container-fluid">
-
+     
                 <!--------------------------
         | Your Page Content Here |
         -------------------------->

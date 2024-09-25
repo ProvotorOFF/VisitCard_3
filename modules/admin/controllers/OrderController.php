@@ -5,6 +5,7 @@ namespace app\modules\admin\controllers;
 use app\modules\admin\models\Order;
 use yii\data\ActiveDataProvider;
 use app\modules\admin\controllers\AppController;
+use Yii;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -13,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class OrderController extends AppController
 {
+    public $enableCsrfValidation = false;
     /**
      * @inheritDoc
      */
@@ -27,6 +29,7 @@ class OrderController extends AppController
                         'delete' => ['POST'],
                     ],
                 ],
+
             ]
         );
     }
@@ -102,6 +105,7 @@ class OrderController extends AppController
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', 'Заказ обновлен!');
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -119,6 +123,8 @@ class OrderController extends AppController
      */
     public function actionDelete($id)
     {
+
+        $this->findModel($id)->unlinkAll('orderProduct', true);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
