@@ -36,6 +36,17 @@ use yii\helpers\Url;
                     <li><a href="<?= Url::to(['order/create']) ?>">Добавить заказ</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href=""><i class="fa fa-cubes"></i> <span>Категории</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= Url::to(['category/index']) ?>">Список категорий</a></li>
+                    <li><a href="<?= Url::to(['category/create']) ?>">Добавить категорию</a></li>
+                </ul>
+            </li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
