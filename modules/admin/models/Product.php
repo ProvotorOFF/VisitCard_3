@@ -60,4 +60,8 @@ class Product extends \yii\db\ActiveRecord
             'is_offer' => 'Is Offer',
         ];
     }
+
+    public function getCategory() {
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
+    }
 }
