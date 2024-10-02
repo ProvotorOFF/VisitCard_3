@@ -3,6 +3,8 @@
 use app\components\MenuWidget;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 
 /** @var yii\web\View $this */
 /** @var app\modules\admin\models\Product $model */
@@ -26,7 +28,9 @@ use yii\widgets\ActiveForm;
         </select>
     </div>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget(CKEditor::class, [
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder', [/* Some CKEditor Options */]),
+    ]) ?>
 
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
