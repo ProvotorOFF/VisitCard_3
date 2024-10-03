@@ -33,7 +33,6 @@ use yii\helpers\Url;
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?= Url::to(['order/index']) ?>">Список заказов</a></li>
-                    <li><a href="<?= Url::to(['order/create']) ?>">Добавить заказ</a></li>
                 </ul>
             </li>
             <li class="treeview">

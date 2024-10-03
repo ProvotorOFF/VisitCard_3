@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'keywords',
             [
                 'attribute' => 'img',
-                'value' => Html::img("@web/images/{$model->img}"),
+                'value' => Html::img("@web/{$model->img}"),
                 'format' => 'raw'
             ],
             'is_offer',

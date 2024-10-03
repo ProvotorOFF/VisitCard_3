@@ -85,7 +85,7 @@ if (!empty($offers)) : ?>
 										<div class="snipcart-item block">
 											<div class="snipcart-thumb">
 												<a href="<?= Url::to(['product/view', 'id' => $offer->id]) ?>">
-													<?= Html::img("@web/images/{$offer->img}", ['alt' => $offer->title]) ?>
+													<?= Html::img("@web/{$offer->img}", ['alt' => $offer->title]) ?>
 												</a>
 												<p><?= $offer->title ?></p>
 												<h4>

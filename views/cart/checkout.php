@@ -47,7 +47,7 @@ $row = 0;
 									<td class="invert"><?= ++$row ?></td>
 									<td class="invert-image">
 										<a href="<?= Url::to(['product/view', 'id' => $id]) ?>">
-											<?= Html::img("@web/images/{$item['img']}", ['alt' => $item['title']]) ?>
+											<?= Html::img("@web/{$item['img']}", ['alt' => $item['title']]) ?>
 										</a>
 									</td>
 									<td class="invert">
